@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -15,6 +16,11 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     CurrentWeatherComponent,
     ForecastWeatherComponent,
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class ComponentModule {}
