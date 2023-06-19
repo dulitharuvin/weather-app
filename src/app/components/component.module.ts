@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
-import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { DetailWeatherComponent } from './detail-weather/detail-weather.component';
 import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceModule } from '../services/service.module';
@@ -14,7 +14,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
   declarations: [
     HomeComponent,
     AutoCompleteComponent,
-    CurrentWeatherComponent,
+    DetailWeatherComponent,
     ForecastWeatherComponent,
   ],
   imports: [
