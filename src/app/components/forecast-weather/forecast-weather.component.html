@@ -1,1 +1,14 @@
-<p>forecast-weather works!</p>
+<div>
+    <div *ngFor="let dailyWeather of dailyWeatherList">
+        <div>
+            <span>{{dailyWeather.Date}}</span>
+        </div>
+        <div>
+            <span>{{dailyWeather.Temp?.Max}}</span>/
+            <span>{{dailyWeather.Temp?.Min}}</span>
+        </div>
+        <div>{{dailyWeather.Clouds}}</div>
+        <div>{{dailyWeather.WeatherDetail?.WeatherMain}}</div>
+        <div>{{dailyWeather.WeatherDetail?.WatherDescription}}</div>
+    </div>
+</div>

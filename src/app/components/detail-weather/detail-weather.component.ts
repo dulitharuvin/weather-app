@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {  } from '@fortawesome/fontawesome-svg-core/index';
-
 import { Weather } from 'src/app/dtos/weather.dto';
 
 @Component({
@@ -10,8 +8,6 @@ import { Weather } from 'src/app/dtos/weather.dto';
 })
 export class DetailWeatherComponent implements OnInit {
   @Input() currentWeather?: Weather;
-
-  faCoffee = faCoffee;
 
   ngOnInit(): void {}
 }

@@ -1,5 +1,5 @@
 <div>
     <app-auto-complete [cityLocationList]="cityLocationList" (selectCity)="getWeatherDetails($event)"
         (locationSearchQuery)="searchCityLocations($event)"></app-auto-complete>
-    <app-detail-weather></app-detail-weather>
+    <app-detail-weather [currentWeather]="weather"></app-detail-weather>
 </div>`

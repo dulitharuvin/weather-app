@@ -7,6 +7,13 @@ import { DetailWeatherComponent } from './detail-weather/detail-weather.componen
 import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceModule } from '../services/service.module';
+import {
+  FontAwesomeModule,
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -22,7 +29,12 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     ServiceModule,
   ],
 })
-export class ComponentModule {}
+export class ComponentModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, far, fab);
+  }
+}
