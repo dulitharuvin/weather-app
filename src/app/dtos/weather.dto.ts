@@ -1,4 +1,4 @@
-import { DailyWeather } from './daily-weather';
+import { DailyWeather } from './daily-weather.dto';
 
 export class Weather {
   public Temp: number;

@@ -1,4 +1,4 @@
-import { WeatherDetail } from './weather.model';
+import { WeatherDetail } from './weather.dto';
 
 export class DailyWeather {
   public Date?: Date | null;
