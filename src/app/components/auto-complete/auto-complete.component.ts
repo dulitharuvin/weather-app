@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject, debounceTime } from 'rxjs';
+import { City } from 'src/app/dtos/city.dto';
 
 @Component({
   selector: 'app-auto-complete',
@@ -9,54 +10,43 @@ import { Subject, debounceTime } from 'rxjs';
 })
 export class AutoCompleteComponent implements OnInit {
   formGroup: FormGroup = this.formBuilder.group({
-    ingredientName: [''],
+    locationSearchQuery: [''],
   });
 
-  // subject: Subject<any> = new Subject();
+  subject: Subject<any> = new Subject();
 
-  // selectedCity: Ingredient | null = null;
+  selectedCity: City | null = null;
+
+  @Input() cityLocationList: City[] = [];
+
+  @Output() locationSearchQuery: EventEmitter<string> =
+    new EventEmitter<string>();
+
+  @Output() selectCity: EventEmitter<City> = new EventEmitter<City>();
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
-    // this.getIngredientList();
-    // this.subject.pipe(debounceTime(500)).subscribe((inputValue: string) => {
-    //   if (!inputValue) {
-    //     this.autoCompleteResults = [];
-    //     return;
-    //   }
-    //   this.autoCompleteResults = this.ingredientList.filter((ingredient) => {
-    //     return ingredient.name
-    //       .toLocaleLowerCase()
-    //       .includes(inputValue.toLocaleLowerCase());
-    //   });
-    // });
+    this.subject.pipe(debounceTime(1000)).subscribe((inputValue: string) => {
+      if (!inputValue || inputValue.trim().length === 0) {
+        return;
+      }
+      this.locationSearchQuery.emit(inputValue);
+    });
   }
 
-  // public searchForFood(event: any) {
-  //   this.subject.next(event.target.value);
-  // }
+  public searchCityLocation(event: any) {
+    this.subject.next(event.target.value);
+  }
 
-  // selectIngredient(ingredient: Ingredient) {
-  //   this.selectedIngredient = ingredient;
-  //   this.formGroup.get('ingredientName')?.setValue(ingredient.name);
-  //   this.autoCompleteResults = [];
-  // }
+  selectCityLocation(cityLocation: City) {
+    this.selectedCity = cityLocation;
+    this.selectCity.emit(this.selectedCity);
+    this.formGroup.get('locationSearchQuery')?.setValue(cityLocation.Name);
+    this.cityLocationList = [];
+  }
 
-  // ngOnDestroy() {
-  //   this.subject.unsubscribe();
-  // }
-
-  // private getIngredientList() {
-  //   this.fetchDataService.fetchIngredients().subscribe(
-  //     (data: []) => {
-  //       this.ingredientList = data.map((o) => {
-  //         return new Ingredient(o);
-  //       });
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+  ngOnDestroy() {
+    this.subject.unsubscribe();
+  }
 }

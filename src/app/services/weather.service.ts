@@ -14,7 +14,7 @@ export class WeatherService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getCityWeather(
+  public getCityWeatherDetails(
     latitude: number,
     longitude: number
   ): Observable<Weather> {

@@ -6,6 +6,7 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { CurrentWeatherComponent } from './current-weather/current-weather.component';
 import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceModule } from '../services/service.module';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -21,6 +22,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    ServiceModule,
   ],
 })
 export class ComponentModule {}
