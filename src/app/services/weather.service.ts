@@ -3,6 +3,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Weather } from '../dtos/weather.dto';
 import { Observable, map } from 'rxjs';
+import { WeatherApi } from '../Shared/WeatherDataExclued.enum';
 
 @Injectable({
   providedIn: 'root',
