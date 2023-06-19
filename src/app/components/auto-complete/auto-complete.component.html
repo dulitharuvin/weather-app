@@ -1,9 +1,12 @@
 <div class="auto-complete-container">
-    <!-- <form [formGroup]="formGroup">
-        <input type="text" formControlName="ingredientName" (keyup)="searchForFood($event)" />
+    <form [formGroup]="formGroup">
+        <input type="text" formControlName="locationSearchQuery" (keyup)="searchCityLocation($event)" />
     </form>
     <ul>
-        <li *ngFor="let ingredient of autoCompleteResults" (click)="selectIngredient(ingredient)">{{ingredient.name}}
+        <li *ngFor="let cityLocation of cityLocationList" (click)="selectCityLocation(cityLocation)">
+            <span>{{cityLocation.Name}}</span>
+            <span>{{cityLocation.State}}</span>
+            <span>{{cityLocation.Country}}</span>
         </li>
-    </ul> -->
+    </ul>
 </div>

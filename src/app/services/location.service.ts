@@ -18,7 +18,7 @@ export class LocationService {
     searchQuery: string,
     limit: number
   ): Observable<City[]> {
-    const getLocationsUrl = `${this.openWeatherApiBaseUrl}/geo/${WeatherApi.LocationAPIVer}/direct/?q=${searchQuery}&limit=${limit}&appid=${this.openWeatherApiKey}`;
+    const getLocationsUrl = `${this.openWeatherApiBaseUrl}/geo/${WeatherApi.LocationAPIVer}/direct?q=${searchQuery}&limit=${limit}&appid=${this.openWeatherApiKey}`;
     return this.httpClient.get<City[]>(getLocationsUrl).pipe(
       map((cities) => {
         return cities.map((city) => new City(city));
