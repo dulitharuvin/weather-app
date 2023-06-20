@@ -18,7 +18,7 @@ export class WeatherService {
     latitude: number,
     longitude: number
   ): Observable<Weather> {
-    const getWeatherDataUrl = `${this.openWeatherApiBaseUrl}/data/${WeatherApi.WeatherAPIVer}/onecall?lat=${latitude}&lon=${longitude}&exclude=${WeatherApi.WeatherDataExcludeProps}&appid=${this.openWeatherApiKey}`;
+    const getWeatherDataUrl = `${this.openWeatherApiBaseUrl}/data/${WeatherApi.WeatherAPIVer}/onecall?lat=${latitude}&lon=${longitude}&exclude=${WeatherApi.WeatherDataExcludeProps}&units=metric&appid=${this.openWeatherApiKey}`;
     return this.httpClient.get<Weather>(getWeatherDataUrl).pipe(
       map((weather) => {
         return new Weather(weather);

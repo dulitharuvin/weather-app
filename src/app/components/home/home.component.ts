@@ -13,6 +13,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class HomeComponent implements OnInit {
   cityLocationList: City[];
   weather?: Weather;
+  currentCity?: City;
 
   searchingLocations: boolean = false;
   searchingWeather: boolean = false;
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
 
   public getWeatherDetails(event: City): void {
     this.searchingWeather = true;
+    this.currentCity = event;
     this.getCityLocationWeather(event);
   }
 
