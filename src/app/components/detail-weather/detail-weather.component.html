@@ -19,9 +19,10 @@
                 </h5>
             </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-2 align-center-vertical">
             <div class="col-auto">
-                <img src='{{ "https://openweathermap.org/img/wn/" + currentWeather?.WeatherDetail?.WeatherIcon+ "@2x.png" }}' />
+                <img
+                    src='{{ "https://openweathermap.org/img/wn/" + currentWeather?.WeatherDetail?.WeatherIcon+ "@2x.png" }}' />
             </div>
             <div class="col-auto">
                 <i class="bi bi-thermometer-half"></i>
@@ -29,11 +30,11 @@
             </div>
             <div class="col-auto">
                 <i class="bi bi-clouds"></i>
-                {{currentWeather?.Clouds}}
+                {{currentWeather?.Clouds}}%
             </div>
             <div class="col-auto">
                 <i class="bi bi-wind"></i>
-                {{currentWeather?.WindSpeed}}
+                {{currentWeather?.WindSpeed}} m/s
             </div>
         </div>
     </div>
