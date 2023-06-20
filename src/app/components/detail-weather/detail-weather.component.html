@@ -1,0 +1,11 @@
+<div>
+    <div>
+        <h2>
+            <fa-icon [icon]="['far', 'clock']" size="xs"></fa-icon>
+            Current conditions
+        </h2>
+    </div>
+    <div>
+        <app-forecast-weather [dailyWeatherList]="currentWeather?.DailyWeather"></app-forecast-weather>
+    </div>
+</div>
