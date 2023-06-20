@@ -7,7 +7,8 @@
             <div class="col-auto">
                 <h2>
                     {{currentCity?.Name}}
-                    <small class="fs-6 text-body-secondary">{{currentCity?.State}},{{currentCity?.Country}}</small>
+                    <small class="fs-6 text-body-secondary"><span *ngIf="currentCity?.State">{{currentCity?.State}},
+                        </span>{{currentCity?.Country}}</small>
                 </h2>
             </div>
         </div>
