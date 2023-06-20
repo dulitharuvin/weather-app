@@ -2,13 +2,13 @@
     <form [formGroup]="formGroup" class="row g-0">
         <div class="col">
             <div class="input-group">
-                <div class="input-group-text"><i class="bi bi-search"></i></div>
-                <input type="text" class="form-control" formControlName="locationSearchQuery"
-                    (keyup)="searchCityLocation($event)" placeholder="Search City ..." />
+                <div class="input-group-text bg-secondary"><i class="bi bi-search text-primary fs-5"></i></div>
+                <input type="text" class="form-control shadow-none" formControlName="locationSearchQuery"
+                    (keyup)="searchCityLocation($event)" placeholder="Search here to view your city weather" />
             </div>
         </div>
     </form>
-    <ul class="z-3 position-absolute rounded-3 shadow border border-success border-opacity-25 bg-white"
+    <ul class="z-3 position-absolute rounded-3 shadow border border-success border-opacity-25 bg-secondary"
         *ngIf="cityLocationList.length">
         <li *ngFor="let cityLocation of cityLocationList" (click)="selectCityLocation(cityLocation)"
             class="p-2 border-bottom">

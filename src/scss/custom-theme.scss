@@ -1,0 +1,19 @@
+$primary: #03594f;
+$secondary: #ebf5f4;
+$tertiary: #c5f7ee;
+$accent_yellow: #fff500;
+$green_300: #59958e;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+);
+
+$custom-colors: (
+  "accent_yellow": $accent_yellow,
+  "green_300": $green_300,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
