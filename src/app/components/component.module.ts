@@ -7,6 +7,7 @@ import { DetailWeatherComponent } from './detail-weather/detail-weather.componen
 import { ForecastWeatherComponent } from './forecast-weather/forecast-weather.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceModule } from '../services/service.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {
   FontAwesomeModule,
   FaIconLibrary,
@@ -29,6 +30,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     FontAwesomeModule,
     ServiceModule,
   ],

@@ -1,11 +1,53 @@
-<div>
-    <div>
-        <h2>
-            <fa-icon [icon]="['far', 'clock']" size="xs"></fa-icon>
-            Current conditions
-        </h2>
+<div class="row">
+    <div class="col">
+        <div class="row g-2 mb-3">
+            <div class="col-auto">
+                <i class="bi bi-geo-alt fs-4"></i>
+            </div>
+            <div class="col-auto">
+                <h2>
+                    {{currentCity?.Name}}
+                    <small class="fs-6 text-body-secondary"><span *ngIf="currentCity?.State">{{currentCity?.State}},
+                        </span>{{currentCity?.Country}}</small>
+                </h2>
+            </div>
+        </div>
+        <div class="card shadow border-success border-opacity-25">
+            <div class="card-body">
+                <div class="row mt-2">
+                    <div class="col-auto">
+                        <h5>
+                            <i class="bi bi-clock"></i>
+                            Current conditions
+                        </h5>
+                    </div>
+                </div>
+                <div class="row mt-2 align-center-vertical">
+                    <div class="col-auto">
+                        <img
+                            src='{{ "https://openweathermap.org/img/wn/" + currentWeather?.WeatherDetail?.WeatherIcon+ "@2x.png" }}' />
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-thermometer-half"></i>
+                        {{currentWeather?.Temp}}°
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-clouds"></i>
+                        {{currentWeather?.Clouds}}%
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-wind"></i>
+                        {{currentWeather?.WindSpeed}} m/s
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">{{currentWeather?.WeatherDetail?.WeatherMain}}</div>
+                    <div class="col-auto">{{currentWeather?.WeatherDetail?.WatherDescription}}</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <app-forecast-weather [dailyWeatherList]="currentWeather?.DailyWeather"></app-forecast-weather>
-    </div>
+</div>
+<div class="row m-3">
+    <app-forecast-weather [dailyWeatherList]="currentWeather?.DailyWeather"></app-forecast-weather>
 </div>
