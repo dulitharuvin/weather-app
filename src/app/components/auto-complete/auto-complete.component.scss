@@ -1,9 +1,16 @@
+@import "../../../scss/custom-theme.scss";
+
 div.auto-complete-container {
   margin: 2rem auto;
   width: 50%;
 
   & form {
     width: 100%;
+
+    & .form-control:focus {
+      border-color: $green_300;
+      box-shadow: none;
+    }
   }
 
   & ul {
@@ -15,6 +22,10 @@ div.auto-complete-container {
     & li {
       text-align: left;
       cursor: pointer;
+
+      &:hover {
+        background-color: $tertiary;
+      }
     }
   }
 }
