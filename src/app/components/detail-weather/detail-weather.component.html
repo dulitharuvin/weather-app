@@ -1,12 +1,14 @@
 <div class="row">
     <div class="col">
-        <div class="row">
-            <div class="col-1">
-                <i class="bi bi-geo-alt" style="font-size: 2rem"></i>
+        <div class="row g-2">
+            <div class="col-auto">
+                <i class="bi bi-geo-alt fs-4"></i>
             </div>
             <div class="col-auto">
-                <h2>{{currentCity?.Name}}</h2>
-                <span>{{currentCity?.State}},{{currentCity?.Country}}</span>
+                <h2>
+                    {{currentCity?.Name}}
+                    <small class="fs-6 text-body-secondary">{{currentCity?.State}},{{currentCity?.Country}}</small>
+                </h2>
             </div>
         </div>
         <div class="row mt-2">
@@ -17,13 +19,13 @@
                 </h5>
             </div>
         </div>
-        <div class="row mt2">
+        <div class="row mt-2">
             <div class="col-auto">
-                <img src="https://openweathermap.org/img/wn/10d@2x.png" />
+                <img src='{{ "https://openweathermap.org/img/wn/" + currentWeather?.WeatherDetail?.WeatherIcon+ "@2x.png" }}' />
             </div>
             <div class="col-auto">
                 <i class="bi bi-thermometer-half"></i>
-                {{currentWeather?.Temp}}
+                {{currentWeather?.Temp}}°
             </div>
             <div class="col-auto">
                 <i class="bi bi-clouds"></i>

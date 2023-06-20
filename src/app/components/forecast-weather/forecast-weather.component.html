@@ -1,14 +1,34 @@
-<div>
-    <div *ngFor="let dailyWeather of dailyWeatherList">
-        <div>
-            <span>{{dailyWeather.Date}}</span>
+<div class="col-auto">
+    <div class="row mt-2 pb-2 border-bottom border-success border-opacity-75">
+        <div class="col-3">
+
         </div>
-        <div>
-            <span>{{dailyWeather.Temp?.Max}}</span>/
-            <span>{{dailyWeather.Temp?.Min}}</span>
+        <div class="col-3">
+            <p class="fs-6">Max/Min temp</p>
         </div>
-        <div>{{dailyWeather.Clouds}}</div>
-        <div>{{dailyWeather.WeatherDetail?.WeatherMain}}</div>
-        <div>{{dailyWeather.WeatherDetail?.WatherDescription}}</div>
+        <div class="col-2">
+            <p class="fs-6">Cloudiness</p>
+        </div>
+        <div class="col-2">
+            <p class="fs-6">General weather</p>
+        </div>
+        <div class="col-2">
+            <p class="fs-6">Daily forecast</p>
+        </div>
+    </div>
+    <div *ngFor="let dailyWeather of dailyWeatherList"
+        class="row mt-2 border-bottom border-success border-opacity-50 outer">
+        <div class="col-3">
+            <span>{{dailyWeather.Date?.toDateString()}}</span>
+        </div>
+        <div class="col-3">
+            <span>{{dailyWeather.Temp?.Max}}°/</span>
+            <span>{{dailyWeather.Temp?.Min}}°</span>
+        </div>
+        <div class="col-2">{{dailyWeather.Clouds}}</div>
+        <div class="col-2"><img
+                src='{{ "https://openweathermap.org/img/wn/" + dailyWeather?.WeatherDetail?.WeatherIcon+ ".png" }}' />{{dailyWeather.WeatherDetail?.WeatherMain}}
+        </div>
+        <div class="col-2">{{dailyWeather.WeatherDetail?.WatherDescription}}</div>
     </div>
 </div>
